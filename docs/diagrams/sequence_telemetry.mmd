@@ -1,0 +1,9 @@
+sequenceDiagram
+    autonumber
+    Client->>ObservabilityAPI: POST /v1/telemetry/log (Log Payload)
+    ObservabilityAPI->>Auth: Validate JWT
+    Auth-->>ObservabilityAPI: OK
+    ObservabilityAPI->>LogProcessor: Scrub PII
+    LogProcessor-->>ObservabilityAPI: Sanitized Log
+    ObservabilityAPI->>Storage: Async emit to Loki
+    ObservabilityAPI-->>Client: 202 Accepted

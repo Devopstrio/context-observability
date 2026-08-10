@@ -1,0 +1,8 @@
+graph TD
+    Client[Microservices / Edge Services] --> |Telemetry| Observability[Context Observability]
+    Observability --> |Metrics| Prometheus[(Prometheus)]
+    Observability --> |Traces| Tempo[(Grafana Tempo)]
+    Observability --> |Logs| Loki[(Grafana Loki)]
+    Prometheus --> Grafana[Grafana Dashboards]
+    Tempo --> Grafana
+    Loki --> Grafana

@@ -1,0 +1,7 @@
+graph TD
+    Ingress[NGINX Ingress] --> Service[ClusterIP Service]
+    Service --> Pod1[Observability Pod 1]
+    Service --> Pod2[Observability Pod 2]
+    Pod1 --> Prometheus[(Prometheus Cluster)]
+    Pod1 --> Loki[(Loki Cluster)]
+    Pod1 --> Tempo[(Tempo Cluster)]

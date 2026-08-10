@@ -1,0 +1,12 @@
+graph TD
+    subgraph "Context Observability Service"
+        API[FastAPI Ingestion]
+        MetricsAgg[Metrics Aggregator]
+        TraceProc[Trace Processor]
+        LogScrub[Log Scruber]
+        AlertEngine[Alerting Engine]
+    end
+    API --> MetricsAgg
+    API --> TraceProc
+    API --> LogScrub
+    MetricsAgg --> AlertEngine

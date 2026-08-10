@@ -1,0 +1,30 @@
+openapi: 3.1.0
+info:
+  title: Context Observability API
+  description: Telemetry ingestion for the Enterprise Context Engineering platform.
+  version: 1.0.0
+paths:
+  /v1/telemetry/log:
+    post:
+      summary: Ingest structured logs
+      responses:
+        '202':
+          description: Log accepted
+  /v1/telemetry/trace:
+    post:
+      summary: Ingest distributed traces
+      responses:
+        '202':
+          description: Trace accepted
+  /v1/telemetry/metric:
+    post:
+      summary: Ingest custom metrics
+      responses:
+        '202':
+          description: Metric accepted
+  /metrics:
+    get:
+      summary: Prometheus metrics endpoint
+      responses:
+        '200':
+          description: Prometheus formatted metric data
